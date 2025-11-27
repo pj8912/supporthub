@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SupportHub - Tickets</title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <style></style>
+    </head>
+    <body>
+        <div class="app-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>SupportHub</span>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <div class="nav-section">
+                        <div class="nav-section-title">Main</div>
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="tickets.html" class="nav-item active">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Tickets</span>
+                        </a>
+                        <a href="customers.html" class="nav-item">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                        <a href="agents.html" class="nav-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Agents</span>
+                        </a>
+                    </div>
+                    <div class="nav-section">
+                        <div class="nav-section-title">Management</div>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="reports.html" class="nav-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Reports</span>
+                        </a>
+                        <a href="kb.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>Knowledge Base</span>
+                        </a>
+                        <a href="notifications.html" class="nav-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </div>
+                </div>
+                <button class="collapse-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Customers Page Header -->
+                <div class="page-title">
+                    <h1>Customers</h1>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Customer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Stats -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">2,547</div>
+                            <div class="stat-label">Total Customers</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% this month
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">1,890</div>
+                            <div class="stat-label">Active Customers</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 5% this month
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">3.8</div>
+                            <div class="stat-label">Avg. Tickets/Customer</div>
+                            <div class="stat-change negative">
+                                <i class="fas fa-arrow-down"></i> 2% this month
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-danger">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">4.2h</div>
+                            <div class="stat-label">Avg. Response Time</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 8% this month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customers Filter Bar -->
+                <div class="tickets-filter-bar">
+                    <div class="filter-group">
+                        <label class="filter-label">Status:</label>
+                        <select class="filter-select">
+                            <option>All</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            <option>New</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Plan:</label>
+                        <select class="filter-select">
+                            <option>All Plans</option>
+                            <option>Enterprise</option>
+                            <option>Professional</option>
+                            <option>Starter</option>
+                            <option>Free</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Join Date:</label>
+                        <select class="filter-select">
+                            <option>All time</option>
+                            <option>This month</option>
+                            <option>Last month</option>
+                            <option>Last 3 months</option>
+                            <option>Custom</option>
+                        </select>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="filter-group">
+                        <input type="text" class="filter-input"
+                            placeholder="Search customers...">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customers Table -->
+                <div class="card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th width="30">
+                                        <div class="checkbox-container">
+                                            <input type="checkbox"
+                                                id="selectAll"
+                                                class="row-checkbox">
+                                            <label for="selectAll"
+                                                class="custom-checkbox">
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>Customer</th>
+                                    <th>Company</th>
+                                    <th>Plan</th>
+                                    <th>Open Tickets</th>
+                                    <th>Total Tickets</th>
+                                    <th>Last Activity</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row-link"
+                                    onclick="showCustomerDetails('CUS-1001')">
+                                    <td>
+                                        <div class="checkbox-container"
+                                            onclick="event.stopPropagation()">
+                                            <input type="checkbox" id="row1"
+                                                class="row-checkbox">
+                                            <label for="row1"
+                                                class="custom-checkbox">
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar">RC</div>
+                                            <div>
+                                                <div class="user-name">Robert
+                                                    Cooper</div>
+                                                <div
+                                                    class="user-email">robert.cooper@techcorp.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>TechCorp Solutions</td>
+                                    <td>
+                                        <span
+                                            class="badge badge-primary">Enterprise</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td class="date-cell">2 hours ago</td>
+                                    <td><span
+                                            class="status-badge status-open">Active</span></td>
+                                    <td class="date-cell">Jan 15, 2025</td>
+                                    <td>
+                                        <div class="ticket-actions">
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-eye"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="table-row-link"
+                                    onclick="showCustomerDetails('CUS-1002')">
+                                    <td>
+                                        <div class="checkbox-container"
+                                            onclick="event.stopPropagation()">
+                                            <input type="checkbox" id="row2"
+                                                class="row-checkbox">
+                                            <label for="row2"
+                                                class="custom-checkbox">
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar">SJ</div>
+                                            <div>
+                                                <div class="user-name">Sarah
+                                                    Johnson</div>
+                                                <div
+                                                    class="user-email">sarah@innovatedesign.co</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Innovate Design Co</td>
+                                    <td>
+                                        <span
+                                            class="badge badge-secondary">Professional</span>
+                                    </td>
+                                    <td>1</td>
+                                    <td>8</td>
+                                    <td class="date-cell">1 day ago</td>
+                                    <td><span
+                                            class="status-badge status-open">Active</span></td>
+                                    <td class="date-cell">Feb 28, 2025</td>
+                                    <td>
+                                        <div class="ticket-actions">
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-eye"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="table-row-link"
+                                    onclick="showCustomerDetails('CUS-1003')">
+                                    <td>
+                                        <div class="checkbox-container"
+                                            onclick="event.stopPropagation()">
+                                            <input type="checkbox" id="row3"
+                                                class="row-checkbox">
+                                            <label for="row3"
+                                                class="custom-checkbox">
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar">ML</div>
+                                            <div>
+                                                <div class="user-name">Maria
+                                                    Lopez</div>
+                                                <div
+                                                    class="user-email">m.lopez@startupinc.io</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Startup Inc</td>
+                                    <td>
+                                        <span
+                                            class="badge badge-light">Starter</span>
+                                    </td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                    <td class="date-cell">1 week ago</td>
+                                    <td><span
+                                            class="status-badge status-pending">Inactive</span></td>
+                                    <td class="date-cell">Mar 10, 2025</td>
+                                    <td>
+                                        <div class="ticket-actions">
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-eye"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <button class="action-btn"
+                                                onclick="event.stopPropagation()"><i
+                                                    class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <div class="page-info">
+                            Showing 1 to 3 of 2,547 customers
+                        </div>
+                        <div class="page-numbers">
+                            <button class="page-btn"><i
+                                    class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">4</button>
+                            <button class="page-btn">5</button>
+                            <button class="page-btn"><i
+                                    class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Quick Details Panel (Hidden by default) -->
+            <div class="quick-details" id="quickDetails">
+                <div class="quick-details-header">
+                    <div class="quick-details-title">Customer Details</div>
+                    <button class="quick-details-close"
+                        onclick="hideCustomerDetails()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Customer Profile -->
+                <div class="card mb-20">
+                    <div
+                        style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+                        <div class="user-avatar"
+                            style="width: 60px; height: 60px; font-size: 1.5rem;">RC</div>
+                        <div>
+                            <h3>Robert Cooper</h3>
+                            <div
+                                class="text-gray">robert.cooper@techcorp.com</div>
+                            <div style="margin-top: 5px;">
+                                <span
+                                    class="badge badge-primary">Enterprise</span>
+                                <span
+                                    class="status-badge status-open">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-meta">
+                        <div class="ticket-meta-item">
+                            <div class="ticket-meta-label">Company:</div>
+                            <div class="ticket-meta-value">TechCorp
+                                Solutions</div>
+                        </div>
+                        <div class="ticket-meta-item">
+                            <div class="ticket-meta-label">Phone:</div>
+                            <div class="ticket-meta-value">+1 (555)
+                                123-4567</div>
+                        </div>
+                        <div class="ticket-meta-item">
+                            <div class="ticket-meta-label">Location:</div>
+                            <div class="ticket-meta-value">San Francisco,
+                                CA</div>
+                        </div>
+                        <div class="ticket-meta-item">
+                            <div class="ticket-meta-label">Join Date:</div>
+                            <div class="ticket-meta-value">Jan 15, 2025</div>
+                        </div>
+                        <div class="ticket-meta-item">
+                            <div class="ticket-meta-label">Last Active:</div>
+                            <div class="ticket-meta-value">2 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Stats -->
+                <div class="card mb-20">
+                    <h3 class="card-title mb-20">Activity Overview</h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-icon bg-primary"
+                                style="width: 40px; height: 40px; font-size: 1rem;">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Total Tickets</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-icon bg-warning"
+                                style="width: 40px; height: 40px; font-size: 1rem;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">3</div>
+                                <div class="stat-label">Open Tickets</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px;">
+                            <div class="stat-icon bg-success"
+                                style="width: 40px; height: 40px; font-size: 1rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value">9<//div>
+                                    <div class="stat-label">Resolved
+                                        Tickets</div>
+                                </div>
+                            </div>
+                            <div class="stat-card" style="padding: 15px;">
+                                <div class="stat-icon bg-danger"
+                                    style="width: 40px; height: 40px; font-size: 1rem;">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-value">$2.4k</div>
+                                    <div class="stat-label">Monthly
+                                        Revenue</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Tickets -->
+                    <div class="card mb-20">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Tickets</h3>
+                            <button class="btn btn-sm btn-outline">View
+                                All</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Subject</th>
+                                        <th>Status</th>
+                                        <th>Last Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            class="ticket-id-cell">#TKT-1024</td>
+                                        <td class="subject-cell">Unable to login
+                                            after recent update</td>
+                                        <td><span
+                                                class="status-badge status-open">Open</span></td>
+                                        <td class="date-cell">2 hours ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="ticket-id-cell">#TKT-1022</td>
+                                        <td class="subject-cell">API Integration
+                                            Issues</td>
+                                        <td><span
+                                                class="status-badge status-pending">Pending</span></td>
+                                        <td class="date-cell">1 day ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="ticket-id-cell">#TKT-1019</td>
+                                        <td class="subject-cell">Feature
+                                            request: Dark mode</td>
+                                        <td><span
+                                                class="status-badge status-resolved">Resolved</span></td>
+                                        <td class="date-cell">3 days ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Notes & Communication -->
+                    <div class="card mb-20">
+                        <div class="card-header">
+                            <h3 class="card-title">Notes & Communication</h3>
+                            <button class="btn btn-sm btn-primary">Add
+                                Note</button>
+                        </div>
+
+                        <div class="conversation">
+                            <div class="conversation-message">
+                                <div class="message-sender">
+                                    <div class="message-avatar">AS</div>
+                                    <div class="message-name">Alice Smith</div>
+                                    <div class="message-time">Mar 30, 2025</div>
+                                </div>
+                                <div class="message-content">
+                                    <p>Customer requested a demo of our new API
+                                        features. Scheduled for next week.</p>
+                                </div>
+                            </div>
+
+                            <div class="conversation-message">
+                                <div class="message-sender">
+                                    <div class="message-avatar">JD</div>
+                                    <div class="message-name">John Doe</div>
+                                    <div class="message-time">Mar 25, 2025</div>
+                                </div>
+                                <div class="message-content">
+                                    <p>Discussed upgrade to Enterprise plan.
+                                        Customer is interested in volume
+                                        pricing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+        // Toggle bulk actions visibility
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const rowCheckboxes = document.querySelectorAll('.row-checkbox:not(#selectAll)');
+        const bulkActions = document.getElementById('bulkActions');
+        const selectedCountElement = document.getElementById('selectedCount');
+        
+        selectAllCheckbox.addEventListener('change', function() {
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            
+            updateBulkActions();
+        });
+        
+        rowCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const allChecked = [...rowCheckboxes].every(cb => cb.checked);
+                selectAllCheckbox.checked = allChecked;
+                
+                updateBulkActions();
+            });
+        });
+        
+        function updateBulkActions() {
+            const checkedCount = [...rowCheckboxes].filter(cb => cb.checked).length;
+            if (selectedCountElement) {
+                selectedCountElement.textContent = checkedCount;
+            }
+            
+            if (checkedCount > 0 && bulkActions) {
+                bulkActions.classList.add('visible');
+            } else if (bulkActions) {
+                bulkActions.classList.remove('visible');
+            }
+        }
+        
+        // Customer details panel
+        function showCustomerDetails(customerId) {
+            const quickDetailsPanel = document.getElementById('quickDetails');
+            if (quickDetailsPanel) {
+                quickDetailsPanel.classList.add('visible');
+                // In a real application, you'd fetch the customer details here
+            }
+        }
+        
+        function hideCustomerDetails() {
+            const quickDetailsPanel = document.getElementById('quickDetails');
+            if (quickDetailsPanel) {
+                quickDetailsPanel.classList.remove('visible');
+            }
+        }
+    
+        // Add click event listeners to close customer details when clicking outside
+        document.addEventListener('click', function(event) {
+            const quickDetails = document.getElementById('quickDetails');
+            const isClickInside = quickDetails.contains(event.target);
+            const isClickOnTableRow = event.target.closest('.table-row-link');
+            
+            if (!isClickInside && !isClickOnTableRow && quickDetails.classList.contains('visible')) {
+                hideCustomerDetails();
+            }
+        });
+    
+        // Stop propagation for action buttons
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
+
+</body>
+</html>

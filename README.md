@@ -1,2 +1,2 @@
 # supporthub
-ticketing system project
+ticketing system project frontend
